@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Install Bookmarklet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        .bookmarklet {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: grab;
+            user-select: none;
+        }
+        .bookmarklet:active {
+            cursor: grabbing;
+        }
+        .note {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Install "Fetch ChatGPT as Txt" Bookmarklet</h1>
+        <p>Drag the button below to your bookmarks bar to easily extract and convert ChatGPT page content to text.</p>
+        <a href="javascript:(function()%7Bconst%20selector%3D'body%20%3E%20div.relative.flex.h-full.w-full.overflow-hidden.transition-colors.z-0%20%3E%20div.relative.flex.h-full.max-w-full.flex-1.flex-col.overflow-hidden%20%3E%20main%20%3E%20div.composer-parent.flex.h-full.flex-col.focus-visible%5C%5C%3Aoutline-0%20%3E%20div.flex-1.overflow-hidden%20%3E%20div'%3Bconst%20element%3Ddocument.querySelector(selector)%3Bif(!element)%7Balert('Element%20not%20found.%20Please%20check%20the%20selector.')%3Breturn%3B%7Dfunction%20extractText(a)%7Blet%20b%3D%5B%5D%3Bfor(let%20c%20of%20a.childNodes)c.nodeType%3D%3D%3DNode.TEXT_NODE%3F(d%3Dc.textContent.trim(),d%26%26b.push(d))%3Ac.nodeType%3D%3D%3DNode.ELEMENT_NODE%26%26(b%3Db.concat(extractText(c)))%3Breturn%20b%7Dconst%20textNodes%3DextractText(element)%2CmarkdownText%3DtextNodes.join('%5Cn%5Cn')%2CnewTab%3Dwindow.open()%3BnewTab%3F(newTab.document.open()%2CnewTab.document.write('%3Cpre%3E'%2BmarkdownText.replace(%2F%3C%2Fg%2C'%26lt%3B').replace(%2F%3E%2Fg%2C'%26gt%3B')%2B'%3C%2Fpre%3E')%2CnewTab.document.close())%3Aalert('Unable%20to%20open%20a%20new%20tab.%20Please%20allow%20pop-ups%20for%20this%20website.')%7D)();" 
+           class="bookmarklet" title="Drag to Bookmarks Bar">Fetch ChatGPT as Txt</a>
+        <div class="note">Ensure that your bookmarks bar is visible. <br>Drag the "Install Bookmarklet" button to your bookmarks bar.</div>
+    </div>
+</body>
+</html>
